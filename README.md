@@ -19,23 +19,25 @@ A modern and clean chat application built using **Kotlin**, **Jetpack Compose**,
 
 ## 🏗 Architecture Overview
 
-app/
-├─ data/
-│ ├─ local/ # Room database (ChatDao, AppDatabase)
-│ ├─ remote/ # Retrofit ApiService
-│ ├─ repo/ # Repository implementation (ChatRepositoryImpl)
-│
-├─ domain/
-│ ├─ model/ # Core data models (RecentChat)
-│ ├─ repository/ # Interfaces (ChatRepository)
-│ ├─ usecase/ # Executable business actions
-│
-├─ presentation/
-│ ├─ chatlist/ # UI Screens + ViewModel
-│ ├─ chatdetail/ # (Extend later for messaging screen)
-│
-├─ sync/
-│ └─ ChatSyncService.kt # Background sync worker/foreground service
+## 🧱 Clean Architecture Layers
+
+### 1) Data Layer
+- **local/** → Room database for offline caching
+- **remote/** → Retrofit API calls
+- **repo/** → Bridges data with domain layer
+
+### 2) Domain Layer
+- **model/** → App’s core business models
+- **repository/** → Interfaces describing required operations
+- **usecase/** → Action-based business workflows (Single Responsibility)
+
+### 3) Presentation Layer
+- **chatlist/** → Chat list UI + ViewModel
+- **chatdetail/** → (Future extension for messaging UI)
+
+### 4) Background Services
+- **sync/ChatSyncService.kt** → Foreground service to sync chats periodically
+
 
 
 ---
