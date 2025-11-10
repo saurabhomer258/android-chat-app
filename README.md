@@ -1,20 +1,81 @@
-# ChatFlow - Android (Skeleton Project)
+# ChatFlow 💬⚡
+A modern and clean chat application built using **Kotlin**, **Jetpack Compose**, **Clean Architecture**, and **Hilt**, designed to be scalable, smooth, and production-ready.
 
-This is a lightweight skeleton of the ChatFlow app (Compose + Hilt + Room + Retrofit).
-It contains key components to get started and to be imported into Android Studio.
+---
 
-## What is included
-- Compose UI screens (Chat list, Chat detail)
-- Hilt DI setup
-- Retrofit + OkHttp interceptor (TimingInterceptor)
-- Room entities + DAO
-- Repository + ViewModel (basic offline-first)
-- ForegroundService for 30s sync
-- Basic Paging 3 hooks in DAO/Repository (needs paging dependency activation)
-- README and Gradle scripts
+## ✨ Features
 
-## How to use
-1. Download the zip and unzip into a folder.
-2. Open the folder in Android Studio as a project.
-3. Sync Gradle and run on an emulator/device (internet required).
-4. For best results, add SQLCipher or additional configs as needed.
+| Feature | Details |
+|--------|---------|
+| 💬 Recent Chat List | Shows name, avatar, unread count, timestamps |
+| 🔍 Search Chats | Real-time search with debounce |
+| 🔄 Infinite Scroll | Paginated list using Flow-powered paging |
+| 📦 Offline Cache | Room DB stores chats locally |
+| 🌐 Sync with Server | One-tap refresh via ViewModel + UseCase |
+| 🔁 Background Sync Service | Foreground service keeps chats updated silently |
+| 🧹 Clean Architecture | UI → UseCases → Repository → Data Source separation |
+
+---
+
+## 🏗 Architecture Overview
+
+app/
+├─ data/
+│ ├─ local/ # Room database (ChatDao, AppDatabase)
+│ ├─ remote/ # Retrofit ApiService
+│ ├─ repo/ # Repository implementation (ChatRepositoryImpl)
+│
+├─ domain/
+│ ├─ model/ # Core data models (RecentChat)
+│ ├─ repository/ # Interfaces (ChatRepository)
+│ ├─ usecase/ # Executable business actions
+│
+├─ presentation/
+│ ├─ chatlist/ # UI Screens + ViewModel
+│ ├─ chatdetail/ # (Extend later for messaging screen)
+│
+├─ sync/
+│ └─ ChatSyncService.kt # Background sync worker/foreground service
+
+yaml
+Copy code
+
+---
+
+## 🧰 Tech Stack
+
+| Layer | Libraries |
+|------|-----------|
+| UI | Jetpack Compose + Material 3 |
+| Architecture | MVVM + Clean Architecture |
+| DI | Hilt / Dagger |
+| Network | Retrofit + OkHttp |
+| Local Storage | Room Database |
+| Async / Reactive | Kotlin Coroutines + StateFlow |
+| Logging | Timber |
+| Testing | JUnit4, MockK, Turbine, Coroutines Test |
+
+---
+
+## 🚀 Getting Started
+
+### 1️⃣ Clone the Repository
+```bash
+git clone https://github.com/your-username/android-chat-app.git
+cd android-chat-app
+2️⃣ Open in Android Studio
+Use Android Studio Flamingo or newer
+
+3️⃣ Sync Dependencies
+File → Sync Project with Gradle Files
+
+4️⃣ Run App ✅
+Connect a device → Press Run ▶
+
+🛠 Optional: Change API Base URL
+Edit:
+
+bash
+Copy code
+data/remote/ApiService.kt
+
