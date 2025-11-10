@@ -37,8 +37,6 @@ app/
 ├─ sync/
 │ └─ ChatSyncService.kt # Background sync worker/foreground service
 
-yaml
-Copy code
 
 ---
 
