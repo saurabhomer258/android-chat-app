@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.example.chatflow.presentation.chatlist.ChatListViewModelTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2025-11-10T10:57:06.484Z" hostname="saurabh_omer" time="3.034">
+  <properties/>
+  <testcase name="load_more_appends_page" classname="com.example.chatflow.presentation.chatlist.ChatListViewModelTest" time="2.955"/>
+  <testcase name="initial_load_emits_loading_then_success" classname="com.example.chatflow.presentation.chatlist.ChatListViewModelTest" time="0.015"/>
+  <testcase name="refresh_calls_syncOnce_and_reloads_first_page" classname="com.example.chatflow.presentation.chatlist.ChatListViewModelTest" time="0.064"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
